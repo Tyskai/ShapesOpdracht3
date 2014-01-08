@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Xml;
 
-public class Parser: ParserImport
+public class ParserXML: ParserImport
 {
-	public override List<Shape> ParseShapes(string Filename)
+	public override List<Shape> ParseFromFile(string Filename)
 	{
 		// Load xml documents
 		XmlDocument doc = new XmlDocument();

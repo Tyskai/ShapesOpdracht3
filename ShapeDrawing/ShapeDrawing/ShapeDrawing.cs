@@ -49,7 +49,7 @@ public class ShapeDrawingForm : Form
         dialog.Title = "Open file...";
         if (dialog.ShowDialog() == DialogResult.OK)
         {
-            shapes = Parser.ParseShapes(dialog.FileName);
+            shapes = ParserXML.ParseFromFile(dialog.FileName);
             this.Refresh();
         }
 
