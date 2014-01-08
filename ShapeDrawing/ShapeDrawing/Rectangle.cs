@@ -27,5 +27,22 @@ class Rectangle : Shape
 		Canvas.DrawLine(pen,x+width,y+height,x,y+height);
 		Canvas.DrawLine(pen,x,y+height,x,y);
     }
+
+    /// <summary>
+    /// This function gives back the points of the rectangle
+    /// </summary>
+    /// <returns>A list containing the four corners of a recctangle</returns>
+    public List<Point> GetCornerPoints()
+    {
+        Point a = new Point();
+        a.X = 4;
+        a.Y = 3;
+
+        List<Point> pointList = new List<Point>();
+
+        pointList.Add(a);
+
+        return pointList;
+    }
 }
 

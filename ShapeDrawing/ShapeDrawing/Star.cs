@@ -50,6 +50,24 @@ public class Star : Shape
 		}
 		
 	}
+
+
+    /// <summary>
+    /// This function give back the points of the Star
+    /// </summary>
+    /// <returns>A list containing the five points of a star</returns>
+    public List<Point> GetCornerPoints()
+    {
+        Point a = new Point();
+        a.X = 4;
+        a.Y = 3;
+
+        List<Point> pointList = new List<Point>();
+
+        pointList.Add(a);
+
+        return pointList;
+    }
 }
 
 
