@@ -50,7 +50,7 @@
     <Compile Include="ParserSVG.cs" />
     <Compile Include="ParserExport.cs" />
     <Compile Include="ParserImport.cs" />
-    <Compile Include="Parser.cs" />
+    <Compile Include="ParserXML.cs" />
     <Compile Include="Rectangle.cs" />
     <Compile Include="Shape.cs" />
     <Compile Include="ShapeDrawing.cs">
