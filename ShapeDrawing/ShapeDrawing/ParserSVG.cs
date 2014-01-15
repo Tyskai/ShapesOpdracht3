@@ -5,7 +5,7 @@ using System.Text;
 
 class ParserSVG:ParserExport
 {
-    public override string ParseFromFile(string file)
+    public override string ParseToFile(string file)
     {
 
         return "";
