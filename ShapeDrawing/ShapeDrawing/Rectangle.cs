@@ -11,21 +11,21 @@ class Rectangle : Shape
 	private int width;
 	private int height;
     private int numerOfPoints;
+    private Color color;
 
-    public Rectangle(int x, int y, int width, int height)
+    public Rectangle(int x, int y, int width, int height, Color color)
     {
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+        this.color = color;
 
         this.numerOfPoints = 4;
     }
     
 	public override string Draw()
     {
-		Pen pen = new Pen(Color.Black);
-
         Point[] points = GetCornerPoints();
 
         string rectangle = "";
@@ -33,7 +33,7 @@ class Rectangle : Shape
         //A for loop will draw each line of the rectangle
         for (int i = 0; i < numerOfPoints; i++)
         {
-            rectangle = rectangle + visual.DrawLine(points[i], points[i+1]) +"/n";
+            rectangle = rectangle + visual.DrawLine(points[i], points[i+1], color) +"/n";
         }
 
         return rectangle;

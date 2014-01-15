@@ -10,13 +10,15 @@ public class Star : Shape
     private int numberOfPoints = 5;
 	private int width;
 	private int height;
+    private Color color;
 
-	public Star (int x, int y, int width, int height)
+	public Star (int x, int y, int width, int height, Color color)
 	{
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+        this.color = color;
 	}
 
 	public override string Draw ()
@@ -29,7 +31,7 @@ public class Star : Shape
         //Draw all the lines of the star
         for (int i = 0; i < numberOfPoints; i++)
         {
-            star = star + visual.DrawLine(pointList[i], pointList[i + 1]) + "/n";
+            star = star + visual.DrawLine(pointList[i], pointList[i + 1], color ) + "/n";
         }
 
         

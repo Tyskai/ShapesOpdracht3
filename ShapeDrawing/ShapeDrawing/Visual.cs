@@ -15,8 +15,8 @@ using System.Drawing;
 
 public abstract class Visual
 {
-    public abstract string DrawLine(Point p1, Point p2);
-    public abstract string DrawEllipse(int x, int y, int w, int h);
+    public abstract string DrawLine(Point p1, Point p2, Color color);
+    public abstract string DrawEllipse(int x, int y, int w, int h, Color color);
 
 
 }

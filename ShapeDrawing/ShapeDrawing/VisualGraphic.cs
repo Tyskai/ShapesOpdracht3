@@ -14,10 +14,10 @@ class VisualGraphic : Visual
     }
 
     //Draw an circle
-    public override string DrawLine(Point p1, Point p2)
+    public override string DrawLine(Point p1, Point p2, Color color)
     {
         //Create a pen
-        Pen pen = new Pen(Color.Black);
+        Pen pen = new Pen(color);
 
         Canvas.DrawLine(pen, p1, p2);
 
@@ -25,10 +25,10 @@ class VisualGraphic : Visual
     }
 
     //Draw an eppilse
-    public override string DrawEllipse(int x, int y, int w, int h)
+    public override string DrawEllipse(int x, int y, int w, int h, Color color)
     {
         //Create a pen
-        Pen pen = new Pen(Color.Black);
+        Pen pen = new Pen(color);
 
         Canvas.DrawEllipse(pen, x, y, w, h);
 

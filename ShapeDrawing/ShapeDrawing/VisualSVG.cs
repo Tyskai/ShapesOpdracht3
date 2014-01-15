@@ -7,14 +7,14 @@ using System.Drawing;
 class VisualSVG : Visual
 {
     //Draw a SVG line
-    public override string DrawLine(Point p1, Point p2)
+    public override string DrawLine(Point p1, Point p2, Color color)
     {
         string line = "<polyline points='" + p1.X + "," + p1.Y + "  " + p2.X + "," + p2.Y + " " + "' style='fill:none;stroke:black;stroke-width:1'/>";
         return line;
     }
 
     //Draw a Circle 
-    public override string DrawEllipse(int x, int y, int w, int h)
+    public override string DrawEllipse(int x, int y, int w, int h, Color color)
     {
         int r = w / 2;
 

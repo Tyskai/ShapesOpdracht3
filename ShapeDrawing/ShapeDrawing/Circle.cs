@@ -8,17 +8,19 @@ class Circle : Shape
 {
 
 	private int size;
+    private Color color;
 
-    public Circle(int x, int y, int size)
+    public Circle(int x, int y, int size, Color color)
     {
 		this.x = x;
 		this.y = y;
 		this.size = size;
+        this.color = color;
     }
 
     public override string Draw()
     {
-        return visual.DrawEllipse(this.x, this.y, this.size, this.size);
+        return visual.DrawEllipse(this.x, this.y, this.size, this.size, this.color);
 
     }
 
