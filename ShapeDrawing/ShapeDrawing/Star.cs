@@ -19,11 +19,8 @@ public class Star : Shape
 		this.height = height;
 	}
 
-	public override void Draw (Graphics Canvas)
+	public override void Draw ()
 	{
-        //Create a pen
-		Pen pen = new Pen (Color.Black);
-
         //Get all the corner points of the star
         Point[] pointList = GetCornerPoints();
 
@@ -31,7 +28,7 @@ public class Star : Shape
         //Draw all the lines of the star
         for (int i = 0; i < numberOfPoints; i++)
         {
-            Canvas.DrawLine(pen, pointList[i], pointList[i + 1]);
+            visual.DrawLine(pointList[i], pointList[i + 1]);
         }
 
 	}

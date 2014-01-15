@@ -64,7 +64,9 @@ public class ShapeDrawingForm : Form
 
 		saveFileDialog.Filter = "TeX files|(*.tex";
 		saveFileDialog.RestoreDirectory = true;
-		
+
+        ParserSVG parser = new ParserSVG();
+
 		if(saveFileDialog.ShowDialog() == DialogResult.OK)
 		{
 			if((stream = saveFileDialog.OpenFile()) != null)
@@ -73,8 +75,7 @@ public class ShapeDrawingForm : Form
                 //   commands to draw the shapes
                 using(StreamWriter writer = new StreamWriter(stream))
                 {
-                        // Write strings to the file here using:
-                        //   writer.WriteLine("Hello World!");
+                    writer.Write("hallo" );
                 }				
 			}
 		}
@@ -82,8 +83,13 @@ public class ShapeDrawingForm : Form
 
     private void OnPaint(object sender, PaintEventArgs e)
 	{
+        Visual visual = new VisualGraphic(e.Graphics);
+
 		// Draw all the shapes
-		foreach(Shape shape in shapes)
-			shape.Draw(e.Graphics);
+        foreach (Shape shape in shapes)
+        {
+            shape.visual = visual;
+            shape.Draw();
+        }
 	}
 }

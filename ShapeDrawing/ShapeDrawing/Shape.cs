@@ -6,11 +6,14 @@ public abstract class Shape
     public int x;
     public int y;
 
+    public Visual visual;
+
 
 	public Shape()
 	{
+
 	}
 
-    public abstract void Draw(Graphics Canvas);
+    public abstract void Draw();
 	
 }

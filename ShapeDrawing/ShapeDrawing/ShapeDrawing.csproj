@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="VisualSVG.cs" />
+    <Compile Include="VisualGraphic.cs" />
+    <Compile Include="Visual.cs" />
     <Compile Include="ParserSVG.cs" />
     <Compile Include="ParserExport.cs" />
     <Compile Include="ParserImport.cs" />

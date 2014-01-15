@@ -22,7 +22,7 @@ class Rectangle : Shape
         this.numerOfPoints = 4;
     }
     
-	public override void Draw(Graphics Canvas)
+	public override void Draw()
     {
 		Pen pen = new Pen(Color.Black);
 
@@ -31,7 +31,7 @@ class Rectangle : Shape
         //A for loop will draw each line of the rectangle
         for (int i = 0; i < numerOfPoints; i++)
         {
-            Canvas.DrawLine(pen, points[i], points[i+1]);
+            visual.DrawLine(points[i], points[i+1]);
         }
 
     }
