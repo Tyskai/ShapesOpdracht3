@@ -65,8 +65,6 @@ public class ShapeDrawingForm : Form
 		saveFileDialog.Filter = "TeX files|(*.tex";
 		saveFileDialog.RestoreDirectory = true;
 
-        ParserSVG parser = new ParserSVG();
-
 		if(saveFileDialog.ShowDialog() == DialogResult.OK)
 		{
 			if((stream = saveFileDialog.OpenFile()) != null)
