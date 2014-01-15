@@ -5,7 +5,7 @@ using System.Text;
 
 public abstract class ParserExport
 {
-    public abstract string ParseFromFile(string file);
+    public abstract string ParseToFile(string file);
 
 
 }
