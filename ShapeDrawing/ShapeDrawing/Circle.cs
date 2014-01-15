@@ -16,9 +16,10 @@ class Circle : Shape
 		this.size = size;
     }
 
-    public override void Draw()
+    public override string Draw()
     {
-        visual.DrawEllipse(this.x, this.y, this.size, this.size);
+        return visual.DrawEllipse(this.x, this.y, this.size, this.size);
+
     }
 
 }

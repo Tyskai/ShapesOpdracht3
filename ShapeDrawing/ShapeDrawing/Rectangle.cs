@@ -22,17 +22,21 @@ class Rectangle : Shape
         this.numerOfPoints = 4;
     }
     
-	public override void Draw()
+	public override string Draw()
     {
 		Pen pen = new Pen(Color.Black);
 
         Point[] points = GetCornerPoints();
 
+        string rectangle = "";
+
         //A for loop will draw each line of the rectangle
         for (int i = 0; i < numerOfPoints; i++)
         {
-            visual.DrawLine(points[i], points[i+1]);
+            rectangle = rectangle + visual.DrawLine(points[i], points[i+1]) +"/n";
         }
+
+        return rectangle;
 
     }
 

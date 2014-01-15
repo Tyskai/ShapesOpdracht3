@@ -19,17 +19,21 @@ public class Star : Shape
 		this.height = height;
 	}
 
-	public override void Draw ()
+	public override string Draw ()
 	{
         //Get all the corner points of the star
         Point[] pointList = GetCornerPoints();
 
+        string star = "";
 
         //Draw all the lines of the star
         for (int i = 0; i < numberOfPoints; i++)
         {
-            visual.DrawLine(pointList[i], pointList[i + 1]);
+            star = star + visual.DrawLine(pointList[i], pointList[i + 1]) + "/n";
         }
+
+        
+        return star;
 
 	}
 
