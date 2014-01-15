@@ -7,7 +7,7 @@ using System.Text;
 public class Star : Shape
 {
 
-
+    private int numberOfPoints = 5;
 	private int width;
 	private int height;
 
@@ -21,34 +21,19 @@ public class Star : Shape
 
 	public override void Draw (Graphics Canvas)
 	{
+        //Create a pen
 		Pen pen = new Pen (Color.Black);
 
-		int numPoints = 5;
-		Point[] pts = new Point[numPoints];
-		double rx = width / 2;
-		double ry = height / 2;
-		double cx = x + rx;
-		double cy = y + ry;
+        //Get all the corner points of the star
+        Point[] pointList = GetCornerPoints();
 
-		double theta = -Math.PI / 2;
-		double dtheta = 4 * Math.PI / numPoints;
-		int i;
-		for (i = 0; i < numPoints; i++) 
-		{
-			pts [i] = new Point (
-				Convert.ToInt32(cx + rx * Math.Cos (theta)),
-				Convert.ToInt32(cy + ry * Math.Sin (theta)));
-			theta += dtheta;
-		}
 
-		for (i = 0; i < numPoints; i++) 
-		{
-			Canvas.DrawLine(pen,pts[i].X,
-                                pts[i].Y,
-                                pts[(i+1) % numPoints].X,
-                                pts[(i+1) % numPoints].Y);
-		}
-		
+        //Draw all the lines of the star
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            Canvas.DrawLine(pen, pointList[i], pointList[i + 1]);
+        }
+
 	}
 
 
@@ -56,17 +41,32 @@ public class Star : Shape
     /// This function give back the points of the Star
     /// </summary>
     /// <returns>A list containing the five points of a star</returns>
-    public List<Point> GetCornerPoints()
+    public Point[] GetCornerPoints()
     {
-        Point a = new Point();
-        a.X = 4;
-        a.Y = 3;
+        //Create empty list
+        Point[] pts = new Point[numberOfPoints + 1];
 
-        List<Point> pointList = new List<Point>();
+        //Some awesome mathematical awesomness....
+        double rx = width / 2;
+        double ry = height / 2;
+        double cx = x + rx;
+        double cy = y + ry;
+        double theta = -Math.PI / 2;
+        double dtheta = 4 * Math.PI / numberOfPoints;
+        
+        //Create all the points for the star
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            pts[i] = new Point(
+                Convert.ToInt32(cx + rx * Math.Cos(theta)),
+                Convert.ToInt32(cy + ry * Math.Sin(theta)));
+            theta += dtheta;
+        }
 
-        pointList.Add(a);
+        pts[numberOfPoints] = pts[0];
 
-        return pointList;
+        //Return all the points
+        return pts;
     }
 }
 

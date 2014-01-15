@@ -10,6 +10,7 @@ class Rectangle : Shape
 
 	private int width;
 	private int height;
+    private int numerOfPoints;
 
     public Rectangle(int x, int y, int width, int height)
     {
@@ -17,6 +18,8 @@ class Rectangle : Shape
 		this.y = y;
 		this.width = width;
 		this.height = height;
+
+        this.numerOfPoints = 4;
     }
     
 	public override void Draw(Graphics Canvas)
@@ -25,10 +28,12 @@ class Rectangle : Shape
 
         Point[] points = GetCornerPoints();
 
-        Canvas.DrawLine(pen, points[0], points[1]);
-        Canvas.DrawLine(pen, points[1], points[2]);
-        Canvas.DrawLine(pen, points[2], points[3]);
-        Canvas.DrawLine(pen, points[3], points[0]);
+        //A for loop will draw each line of the rectangle
+        for (int i = 0; i < numerOfPoints; i++)
+        {
+            Canvas.DrawLine(pen, points[i], points[i+1]);
+        }
+
     }
 
     /// <summary>
@@ -37,12 +42,6 @@ class Rectangle : Shape
     /// <returns>A list containing the four corners of a recctangle</returns>
     public Point[] GetCornerPoints()
     {
-
-        int numerOfPoints = 4;
-
-        //THe list containing the corner points
-        Point[] pointList = new Point[numerOfPoints];
-
         //upper left point
         Point ul = new Point();
         ul.X = x;
@@ -53,12 +52,10 @@ class Rectangle : Shape
         ur.X = x + width;
         ur.Y = y;
 
-
         //lower right point
         Point lr = new Point();
         lr.X = x + width;
         lr.Y = y + height;
-
 
         //lower left point
         Point ll = new Point();
@@ -66,11 +63,15 @@ class Rectangle : Shape
         ll.Y = y + height;
 
 
+        //THe list containing the corner points
+        Point[] pointList = new Point[numerOfPoints + 1];
+
         //Add the points to the list
         pointList[0] = ul;
         pointList[1] = ur;
         pointList[2] = lr;
         pointList[3] = ll;
+        pointList[4] = ul;
 
         return pointList;
     }
