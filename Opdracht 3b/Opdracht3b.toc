@@ -2,19 +2,20 @@
 \contentsline {section}{\numberline {1}Design – Comparison}{2}
 \contentsline {subsection}{\numberline {1.1}Our original Design}{2}
 \contentsline {subsection}{\numberline {1.2}Our Design}{3}
-\contentsline {section}{\numberline {2}Implementation}{4}
-\contentsline {subsection}{\numberline {2.1}Pull Up: Shapes}{4}
+\contentsline {section}{\numberline {2}Implementation}{5}
+\contentsline {subsection}{\numberline {2.1}Pull Up: Shapes}{5}
 \contentsline {subsection}{\numberline {2.2}Add Attribute}{5}
 \contentsline {subsection}{\numberline {2.3}Extract Variable: GetCornerPoints}{5}
 \contentsline {subsubsection}{\numberline {2.3.1}Rectangle}{5}
 \contentsline {subsubsection}{\numberline {2.3.2}Star}{5}
 \contentsline {subsection}{\numberline {2.4}Introducing Abstract Class: ParserImport}{5}
-\contentsline {subsubsection}{\numberline {2.4.1}Rename Method and Push Down Method}{5}
-\contentsline {subsubsection}{\numberline {2.4.2}Change Method in ShapeDrawingForm}{5}
-\contentsline {subsection}{\numberline {2.5}Introducing Abstract Class: ParserExport -> Visual}{5}
+\contentsline {subsubsection}{\numberline {2.4.1}Rename Method and Push Down Method}{6}
+\contentsline {subsubsection}{\numberline {2.4.2}Change Method in ShapeDrawingForm}{6}
+\contentsline {subsection}{\numberline {2.5}Introducing Abstract Class: ParserExport -> Visual}{6}
 \contentsline {subsubsection}{\numberline {2.5.1}Add new subclass: VisualSVG}{6}
 \contentsline {subsubsection}{\numberline {2.5.2}Add new subclass: VisualGraphic}{6}
 \contentsline {subsubsection}{\numberline {2.5.3}Add attribute: Visual}{6}
 \contentsline {subsubsection}{\numberline {2.5.4}Change Method: Draw() in Shape}{6}
-\contentsline {subsubsection}{\numberline {2.5.5}Change Methods in ShapeDrawingForm}{6}
-\contentsline {section}{\numberline {3}Reflection}{6}
+\contentsline {subsubsection}{\numberline {2.5.5}Change Methods in ShapeDrawingForm}{7}
+\contentsline {subsection}{\numberline {2.6}Add the Color}{7}
+\contentsline {section}{\numberline {3}Reflection}{7}

@@ -57,7 +57,7 @@ We try to not use any switch statement, to avoid "adding switch statements to th
 We will add our Design before starting to code because we make a mistake which need to be solved first. The diagram looks much alike.
 
 \\
-\includegraphics[scale=0.3]{diagramFinal.jpg}
+\includegraphics[scale=0.5]{diagramFinal.jpg}
 \\
 
 We still have the two abstract Parser methods, although we renamed the ParserExport to Visual, and his subclass, ParserSVG to VisualSVG. We add a new subclass to the renamed abstract Visual class, called VisualGraphics, which new task will be that what the Draw class of Shape did. The Visual class will get other methods, drawLine and drawCircle. After that we will recreate the Shape methods. We removed the ExportSVG method from the Shape class and we modify the Draw method. The Draw will now call the methods defined in Visual instead of the Graphics methods. The original code in Draw will be used to write the VisualGraphics class.
@@ -130,8 +130,11 @@ We now have every class and method (changed), now they need to be called right m
 \\
 The onPaint method do not need to change much, it still have to call the Draw method of each Shape. But now it also have to change the visual of each shape into VisualGraphic.
 \\
-The exportFileHandler method, need to export to a SVG file. We added the already excisting opening and closnig from a file. Write the basis syntax into a SVG file and added the shapes in a for loop. Here we also need to change the Visual of each Shape, before we can call the Draw method of each Shape.
+The exportFileHandler method, need to export to a SVG file. We added the already excisting opening and closinig from a file. Write the basis syntax into a SVG file and added the shapes in a for loop. Here we also need to change the Visual of each Shape, before we can call the Draw method of each Shape.
 
+
+\subsection{Add the Color}
+We extending the Color 
 
 % % part 3
 \section{Reflection}
