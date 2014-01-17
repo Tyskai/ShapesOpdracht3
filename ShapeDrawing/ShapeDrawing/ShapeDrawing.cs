@@ -65,7 +65,7 @@ public class ShapeDrawingForm : Form
 		saveFileDialog.Filter = "SVG files|(*.svg";
 		saveFileDialog.RestoreDirectory = true;
 
-        Visual visual = new VisualSVG();
+
 
 		if(saveFileDialog.ShowDialog() == DialogResult.OK)
 		{
@@ -77,10 +77,13 @@ public class ShapeDrawingForm : Form
                 {
                     writer.Write("<?xml version='1.0' standalone='no'?> <!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'> <svg xmlns='http://www.w3.org/2000/svg' version='1.1'> ");
 
+                    Visual visual = new VisualSVG(writer);
+
                     //Draw all shapes
                     foreach (Shape shape in shapes)
                     {
                         shape.visual = visual;
+                        
                         shape.Draw();
                     }
 
