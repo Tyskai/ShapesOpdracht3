@@ -14,9 +14,9 @@ class VisualSVG : Visual
     }
 
     //Draw a Circle 
-    public override string DrawEllipse(int x, int y, int w, int h, Color color)
+    public override string DrawCircle(int x, int y, int s, Color color)
     {
-        int r = w / 2;
+        int r = s / 2;
 
         string ellipse = "<circle cx='" + (x+r) + "' cy='" + (y+r) + "' r='" + r + "' stroke-width='1' fill='none' stroke='black' />";
         return ellipse;

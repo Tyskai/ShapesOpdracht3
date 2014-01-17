@@ -20,7 +20,7 @@ class Circle : Shape
 
     public override string Draw()
     {
-        return visual.DrawEllipse(this.x, this.y, this.size, this.size, this.color);
+        return visual.DrawCircle(this.x, this.y, this.size, this.color);
 
     }
 

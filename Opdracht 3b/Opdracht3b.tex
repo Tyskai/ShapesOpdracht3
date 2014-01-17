@@ -51,7 +51,7 @@ So our Original Design is not quit better then the "extend the existing Shapes w
 \\
 We were not planning on "copy-paste the existing visualization code into a new class and adapt it to produce SVG", but it could be that our solution used code which would look much like the existing graphic code, the original Draw method already had. 
 \\
-We try to not use any switch statement, to avoid "add switch statements to the existing Shape classes to switch between drawing on screen or generating SVG files". So our original Design, although not good, did not use switch statements in the new found solution.
+We try to not use any switch statement, to avoid "adding switch statements to the existing Shape classes to switch between drawing on screen or generating SVG files". So our original Design, although not good, did not use switch statements in the new found solution.
 
 
 \subsection{Our Design}
@@ -61,7 +61,7 @@ We will add our Design before starting to code because we make a mistake which n
 \includegraphics[scale=0.3]{diagramFinal.jpg}
 \\
 
-We still have the two abstract Parser methods, although we renamed the ParserExport to Visual, and his subclass, ParserSVG to VisualSVG. We add a new subclass to the renamed abstract Visual class, called VisualGraphics, which new task will be that what the Draw class of Shape did. The Visual class will get other methods, drawLine and drawCircle. After that we will recreate the Shape methods. We removed the ExportSVG method from the Shape class and we modify the Draw method. The Draw method will be modified, it will now call the methods defined in Visual instead of the Graphics methods. The original code in Draw will be used to write the VisualGraphics class.
+We still have the two abstract Parser methods, although we renamed the ParserExport to Visual, and his subclass, ParserSVG to VisualSVG. We add a new subclass to the renamed abstract Visual class, called VisualGraphics, which new task will be that what the Draw class of Shape did. The Visual class will get other methods, drawLine and drawCircle. After that we will recreate the Shape methods. We removed the ExportSVG method from the Shape class and we modify the Draw method. The Draw will now call the methods defined in Visual instead of the Graphics methods. The original code in Draw will be used to write the VisualGraphics class.
 \\
 
 % % Beter then?
@@ -78,7 +78,7 @@ By giving each Shape his own (abstract) Visual, each Shape does not have to know
 
 \subsection{Pull Up: Shapes}
 %We see that the attributes in Rectangle, Circle and Star for the x and y position are all integers with the name x and y, and represent the appear position for this Shapes. Every new Shape should also need a x and y position. Therefore we can pull this attribute up to the abstract Shape class. Now we will compile the program to see if we didn't make a mistake.
-The pulling up from the variables x and y, into the abstract Shapes, didn't give trouble.
+The pulling up from the variables x and y, into the abstract Shapes, didn't give any trouble.
 
 
 \subsection{Add Attribute}
@@ -98,28 +98,40 @@ We already had a complicate code to calculate the Star Points. We used this code
 
 \subsection{Introducing Abstract Class: ParserImport}
 %The original program has only the class Parser, with the method ParseShapes. We will make it abstract and create the subclass ParseXML. 
+We here will make the ParserImport, which is an abstract superclass for the original Parser. It is not really necessary, to create an abstract class but it makes it easier to extend the code in the future. 
 
 \subsubsection{Rename Method and Push Down Method}
 %The original Parser class already had the possibility to import a XML file with the method ParseShapes and thus we use that method in the subclass ParseXML. We choose to use this method but we will rename it to ParseFromFile, to make its purpose clearer. We will also define it already in the Abstract class, every new subclass (added in the future) should also have that method.
 
+
 \subsubsection{Change Method in ShapeDrawingForm}
 %We changed the name and the place of the original ParseShapes method. The ShapeDrawingForm classes called that method in his openFileHandler method. So we need to change the calling of the old ParseShape method into a calling for the new ParseFromFile method. Now it is very important that we test and compile the code. We did not really rewrite the original code from the method ParseShapes, but we need to make sure the reading from an XML file still works before we try to make the SVG export part. The class ShapeDrawingForm also need to call the right ParseFromFile method, instead of the old ParseShapes method which at this point doesn't exists any more.
 
+% % % % ABOND THE PLAN!!!
 \subsection{Introducing Abstract Class: ParserExport -> Visual}
-%We will introduce a new abstract class called the ParserExport with the method ParseToFile. 
-Methods: DrawLine and DrawCircle
+%We will introduce a new abstract class called the ParserExport with the method ParseToFile. Verwijzing Section 1
+Here we will abandon the plan totally for the first time. As described in Section 1, our actually design of the new class which will generate SVG code need to be different, and we abandon the original 'ParserExport - plan'. We will create here, instead of the ParserExport, a abstract Visual class, with two methods: DrawLine and DrawCircle. This class will handle all the visualisations of the Shapes.
 
 \subsubsection{Add new subclass: VisualSVG}
 %Then we can add the subclass ParseSVG, which will implement a way to export every shape. The method ParseToFile will use the ExportSVG method for every Shape it needs to export, So there is no need for a switch in this method! 
+We add the subclass VisualSVG, to the Visual class, which will implement the DrawCircle and DrawLine methods so that it will draw a circle or line in SVG code.
 
 \subsubsection{Add new subclass: VisualGraphic}
-Uses the original Draw method code
+We need to also visualize the original the Shapes in the program itself, like the original Draw method did. Therefore we create a new subclass under Visual, called VisualGraphic. We will define the methods DrawCircle and Drawline by using the original Draw method of each shape. This worked good, we only needed to copy past a few lines from two subclasses of Shape.
+
+\subsubsection{Add attribute: Visual}
+After defining the new visual code, we also need to give the Shape class a Visual. We add to the abstract Shape class an attribute, visual, so every created Shape have a Visual. This visual will be defined (or changed) depending on the type of Visual we need. This defining of changing will be done by the ShapeDrawingForm class.
 
 \subsubsection{Change Method: Draw() in Shape}
-Rewrite the original Draw method in Shape, so that it use the VisualGraphic instead of the C\# oriented Graphics.
+The Draw method in every subclass of Shape needs to be changed. We will draw shapes using the defined visual instead of using the C\# oriented Graphics.
 
 \subsubsection{Change Methods in ShapeDrawingForm}
 %We need a way to call the new introduced method, ParseToFile. This will be done from the ShapeDrawingForm class if the user want to export the current file. Introducing a new method in ShapeDrawingForm called exportFileHandler, will handle the event if the user clicks export. Then we will have to compile and test the code! Because this is the point we introduces a whole new code, the export of the shapes into a SVG file. We need to make sure it works, and the shapes are exporting the right way.
+We now have every class and method (changed), now they need to be called right methods in the ShapeDrawingForm class when an event happened. 
+\\
+The onPaint method do not need to change much, it still have to call the Draw method of each Shape. But now it also have to change the visual of each shape into VisualGraphic.
+\\
+The exportFileHandler method, need to export to a SVG file. We added the already excisting opening and closnig from a file. Write the basis syntax into a SVG file and added the shapes in a for loop. Here we also need to change the Visual of each Shape, before we can call the Draw method of each Shape.
 
 
 % % part 3

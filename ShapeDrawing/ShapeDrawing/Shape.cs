@@ -9,11 +9,7 @@ public abstract class Shape
     public Visual visual;
 
 
-	public Shape()
-	{
-
-	}
-
+    public Shape();
     public abstract string Draw();
 	
 }
