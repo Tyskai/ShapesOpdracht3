@@ -142,13 +142,17 @@ We created a solution by adding a new method, getRGBstring, which generated the 
 
 % % part 3
 \section{Reflection}
+% % what have we achiefed?
 We achieved a nice and more complete program, without duplication code. We applied the Bridge Pattern for the Visual class to avoid copy past and editing the original Draw method. And we even create new methods when a line of code occurred multiple times, like the getRGBstring and getCornerPoints methods.
-\\
+\\  % % Add new visualizations
 By applying the Bridge Pattern, we also made it very easy to add new visualizations. You just give an implementation of the DrawLine and DrawCircle methods for the new visualization. After that you only need to add a new Event in which this new visualization is needed and change the visual of every Shape in this visualization.
+\\  % % Add new Shape
+Adding a new Shape is not very hard. We can very easily add a Shape like a polygon (triangle, pentagon) or some other Shape which can be described using Circles and Lines. We just have to add a new subclass to Shape and give it the attributes it needs. Then we should define its Draw method, using the methods defined in Visual. We also need to define the ParseXML method, so that the new defined Shape can be recognised when it is imported.
 \\
-Adding a new Shape is not very hard. We can very easily add a Shape like a polygon (triangle, pentagon) or some other Shape which can be described using Circles and Lines. We just have to add a new subclass to Shape and give it the attributes it needs. Then we should define its Draw method, using the methods defined in Visual.
-\\
-When the new
+When the new, to be added Shape, is not describable with the Visual methods DrawCircle and DrawLine, we have to define a new method. This new method needs to be implemented by every subclass of Visual, which can give a lot of work depending on how many subclasses Visual has. But when you create a good new method, which could also be used in other new Shapes (in the future), a little afford will prevent much more work in the future. Then we can describe the Draw method with this new defined Visual method and 
+\\ % % Star Change
+
+When we
 
 
 
