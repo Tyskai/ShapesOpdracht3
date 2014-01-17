@@ -32,6 +32,11 @@ class VisualSVG : Visual
         writer.Write(circle);
     }
 
+    /// <summary>
+    /// Creates a RGB string needed to export a Color to something the SVG code understand
+    /// </summary>
+    /// <param name="color">The color needed to be exported</param>
+    /// <returns>The created String containing the SVG color code</returns>
     public string getRGBstring(Color color)
     {
         return "rgb(" + color.R + " ," + color.G + " ," + color.B+")";
