@@ -135,9 +135,10 @@ The onPaint method do not need to change much, it still have to call the Draw me
 \\
 The exportFileHandler method, need to export to a SVG file. We added the already excisting opening and closinig from a file. Write the basis syntax into a SVG file and added the shapes in a for loop. Here we also need to change the Visual of each Shape, before we can call the Draw method of each Shape.
 
-
 \subsection{Add the Color}
-We extending the Color 
+We extending the our program so that it also could handle color's. This was not in our original (nor in our in section 1 described) design plan. We choose to add this feather. We had some deciding how to read the color from the XML file. You can save color like "Red" but also like "\#FF0000" and we want both to work. The visualisation of the Graphic draw part, worked almost immediately. But visualisation of the SVG file also had some trouble because of the 'how to describe' color problem, just like we had with the XML part.
+\\
+We created a solution by adding a new method, getRGBstring, which generated the needed SVG color values in string format. 
 
 % % part 3
 \section{Reflection}
