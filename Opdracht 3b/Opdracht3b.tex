@@ -110,7 +110,7 @@ We only need to change the call of the original Parser method into the new defin
 
 
 % % % % ABOND THE PLAN!!!  % % % % % % %
-\subsection{Introducing Abstract Class: ParserExport -> Visual}
+\subsection{Introducing Abstract Class: Visual}
 %We will introduce a new abstract class called the ParserExport with the method ParseToFile. Verwijzing Section 1
 Here we will abandon the plan totally for the first time. As described in Section 1, our actually design of the new class which will generate SVG code need to be different, and we abandon the original 'ParserExport - plan'. We will create here, instead of the ParserExport, a abstract Visual class, with two methods: DrawLine and DrawCircle. This class will handle all the visualisations of the Shapes.
 
@@ -142,6 +142,11 @@ We created a solution by adding a new method, getRGBstring, which generated the 
 
 % % part 3
 \section{Reflection}
+We achieved a nice and more complete program, without duplication code. We applied the Bridge Pattern for the Visual class to avoid copy past and editing the original Draw method. And we even create new methods when a line of code occurred multiple times, like the getRGBstring and getCornerPoints methods.
+\\
+By applying the Bridge Pattern, we also made it very easy to add new visualizations. You just give an implementation of the DrawLine and DrawCircle methods for the new visualization. After that you only need to add a new Event in which this new visualization is needed and change the visual of every Shape in this visualization.
+\\
+Adding a new Shape is not very hard. We can very easily add a Shape like a polygon (triangle, pentagon) or some other Shape which can be described using Circles and Lines. We just have to add a new subclass to Shape
 
 
 
