@@ -66,7 +66,6 @@ public class ShapeDrawingForm : Form
 		saveFileDialog.RestoreDirectory = true;
 
 
-
 		if(saveFileDialog.ShowDialog() == DialogResult.OK)
 		{
 			if((stream = saveFileDialog.OpenFile()) != null)

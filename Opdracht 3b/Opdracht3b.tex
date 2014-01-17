@@ -97,16 +97,19 @@ We already had a complicate code to calculate the Star Points. We used this code
 
 \subsection{Introducing Abstract Class: ParserImport}
 %The original program has only the class Parser, with the method ParseShapes. We will make it abstract and create the subclass ParseXML. 
-We here will make the ParserImport, which is an abstract superclass for the original Parser. It is not really necessary, to create an abstract class but it makes it easier to extend the code in the future. 
+We here made a new abstract ParserImport class, which is an abstract superclass for the original Parser.  It is not really necessary, to create an abstract class but it makes it easier to extend the code in the future.
 
-\subsubsection{Rename Method and Push Down Method}
+\subsubsection{Rename Class and Push Down Method}
 %The original Parser class already had the possibility to import a XML file with the method ParseShapes and thus we use that method in the subclass ParseXML. We choose to use this method but we will rename it to ParseFromFile, to make its purpose clearer. We will also define it already in the Abstract class, every new subclass (added in the future) should also have that method.
+We renamed the Parser class to ParserXML, and made it a subclass from the ParserImport class. The re-arranging of the method went well, it was mostly a matter of renaming, the already exciting method could stay the same.
 
 
 \subsubsection{Change Method in ShapeDrawingForm}
 %We changed the name and the place of the original ParseShapes method. The ShapeDrawingForm classes called that method in his openFileHandler method. So we need to change the calling of the old ParseShape method into a calling for the new ParseFromFile method. Now it is very important that we test and compile the code. We did not really rewrite the original code from the method ParseShapes, but we need to make sure the reading from an XML file still works before we try to make the SVG export part. The class ShapeDrawingForm also need to call the right ParseFromFile method, instead of the old ParseShapes method which at this point doesn't exists any more.
+We only need to change the call of the original Parser method into the new defined ParseFromFile method. Not a single problem occurred.
 
-% % % % ABOND THE PLAN!!!
+
+% % % % ABOND THE PLAN!!!  % % % % % % %
 \subsection{Introducing Abstract Class: ParserExport -> Visual}
 %We will introduce a new abstract class called the ParserExport with the method ParseToFile. Verwijzing Section 1
 Here we will abandon the plan totally for the first time. As described in Section 1, our actually design of the new class which will generate SVG code need to be different, and we abandon the original 'ParserExport - plan'. We will create here, instead of the ParserExport, a abstract Visual class, with two methods: DrawLine and DrawCircle. This class will handle all the visualisations of the Shapes.

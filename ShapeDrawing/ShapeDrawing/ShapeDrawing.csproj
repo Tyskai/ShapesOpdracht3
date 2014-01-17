@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Circle.cs" />
+    <Compile Include="VisualLatex.cs" />
     <Compile Include="VisualSVG.cs" />
     <Compile Include="VisualGraphic.cs" />
     <Compile Include="Visual.cs" />
