@@ -21,22 +21,19 @@ public class Star : Shape
         this.color = color;
 	}
 
-	public override string Draw ()
+    /// <summary>
+    /// This method calls the methods needed to draw a Star
+    /// </summary>
+	public override void Draw ()
 	{
         //Get all the corner points of the star
         Point[] pointList = GetCornerPoints();
 
-        string star = "";
-
         //Draw all the lines of the star
         for (int i = 0; i < numberOfPoints; i++)
         {
-            star = star + visual.DrawLine(pointList[i], pointList[i + 1], color ) + "/n";
+            visual.DrawLine(pointList[i], pointList[i + 1], color );
         }
-
-        
-        return star;
-
 	}
 
 

@@ -81,7 +81,7 @@ public class ShapeDrawingForm : Form
                     foreach (Shape shape in shapes)
                     {
                         shape.visual = visual;
-                        writer.Write(shape.Draw());
+                        shape.Draw();
                     }
 
                     writer.Write("</svg>");

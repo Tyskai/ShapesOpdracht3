@@ -24,19 +24,18 @@ class Rectangle : Shape
         this.numerOfPoints = 4;
     }
     
-	public override string Draw()
+    /// <summary>
+    /// This method calls the methods needed to draw a Rectangle
+    /// </summary>
+	public override void Draw()
     {
         Point[] points = GetCornerPoints();
-
-        string rectangle = "";
 
         //A for loop will draw each line of the rectangle
         for (int i = 0; i < numerOfPoints; i++)
         {
-            rectangle = rectangle + visual.DrawLine(points[i], points[i+1], color) +"/n";
+            visual.DrawLine(points[i], points[i+1], color);
         }
-
-        return rectangle;
 
     }
 

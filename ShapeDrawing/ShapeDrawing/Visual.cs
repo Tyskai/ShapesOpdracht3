@@ -15,6 +15,6 @@ using System.Drawing;
 
 public abstract class Visual
 {
-    public abstract string DrawLine(Point p1, Point p2, Color color);
-    public abstract string DrawCircle(int x, int y, int s, Color color);
+    public abstract void DrawLine(Point p1, Point p2, Color color);
+    public abstract void DrawCircle(int x, int y, int s, Color color);
 }

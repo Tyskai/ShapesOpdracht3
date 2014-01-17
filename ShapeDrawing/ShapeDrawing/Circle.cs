@@ -18,10 +18,13 @@ class Circle : Shape
         this.color = color;
     }
 
-    public override string Draw()
+    /// <summary>
+    /// This method calls the methods needed to draw a Circle
+    /// </summary>
+    public override void Draw()
     {
-        return visual.DrawCircle(this.x, this.y, this.size, this.color);
-
+        //Draw a circle
+        visual.DrawCircle(this.x, this.y, this.size, this.color);
     }
 
 }

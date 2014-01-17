@@ -13,6 +13,6 @@ public abstract class Shape
     {
 
     }
-    public abstract string Draw();
+    public abstract void Draw();
 	
 }
