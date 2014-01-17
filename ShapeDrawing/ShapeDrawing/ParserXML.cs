@@ -26,8 +26,8 @@ public class ParserXML: ParserImport
 					width = int.Parse(shape.Attributes["width"].Value);
 					height = int.Parse(shape.Attributes["height"].Value);
                     //WERKT NIET
-                    //color = Color.FromName((shape.Attributes["color"].Value));
-                    color = Color.Red;
+                    color = Color.FromName((shape.Attributes["color"].Value));
+                    //color = Color.Red;
                     shapes.Add(new Rectangle(x, y, width, height, color));
                     break;
                 case "circle":
