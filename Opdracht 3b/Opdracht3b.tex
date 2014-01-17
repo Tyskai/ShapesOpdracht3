@@ -146,7 +146,9 @@ We achieved a nice and more complete program, without duplication code. We appli
 \\
 By applying the Bridge Pattern, we also made it very easy to add new visualizations. You just give an implementation of the DrawLine and DrawCircle methods for the new visualization. After that you only need to add a new Event in which this new visualization is needed and change the visual of every Shape in this visualization.
 \\
-Adding a new Shape is not very hard. We can very easily add a Shape like a polygon (triangle, pentagon) or some other Shape which can be described using Circles and Lines. We just have to add a new subclass to Shape, give it the attributes it need and define its Draw method.
+Adding a new Shape is not very hard. We can very easily add a Shape like a polygon (triangle, pentagon) or some other Shape which can be described using Circles and Lines. We just have to add a new subclass to Shape and give it the attributes it needs. Then we should define its Draw method, using the methods defined in Visual.
+\\
+When the new
 
 
 
