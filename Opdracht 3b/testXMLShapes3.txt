@@ -1,7 +1,7 @@
 <shapes>
-<circle x="45" y="100" size="50" color="#FF0000"/>
-<rectangle x="150" y="200" height="50" width="100" color="#FF0000"/>
-<star x="50" y="250" width="30" height="30"  color="#FF0000"/>
-<star x="150" y="100" width="50" height="50"  color="#FF0000"/>
-<star x="100" y="150" width="40" height="40"  color="#FF0000"/>
+<circle x="45" y="100" size="50" color="red"/>
+<rectangle x="150" y="200" height="50" width="100" color="yellow"/>
+<star x="50" y="250" width="30" height="30" color="red"/>
+<star x="150" y="100" width="50" height="50" color="red"/>
+<star x="100" y="150" width="40" height="40" color="green"/>
 </shapes>
