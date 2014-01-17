@@ -25,16 +25,13 @@ public class ParserXML: ParserImport
 					y = int.Parse(shape.Attributes["y"].Value);
 					width = int.Parse(shape.Attributes["width"].Value);
 					height = int.Parse(shape.Attributes["height"].Value);
-                    //WERKT NIET
                     color = Color.FromName((shape.Attributes["color"].Value));
-                    //color = Color.Red;
                     shapes.Add(new Rectangle(x, y, width, height, color));
                     break;
                 case "circle":
 					x = int.Parse(shape.Attributes["x"].Value);
 					y = int.Parse(shape.Attributes["y"].Value);
-                    //LATER AANPASSEN -nu hardcoded
-                    color = Color.Green;
+                    color = Color.FromName((shape.Attributes["color"].Value));
 					int size = int.Parse(shape.Attributes["size"].Value);
                     shapes.Add(new Circle(x, y, size, color));
                     break;
@@ -43,8 +40,7 @@ public class ParserXML: ParserImport
 					y = int.Parse(shape.Attributes["y"].Value);
 					width = int.Parse(shape.Attributes["width"].Value);
 					height = int.Parse(shape.Attributes["height"].Value);
-                    //LATER AANPASSEN - nu hardcoded
-                    color = Color.Blue;
+                    color = Color.FromName((shape.Attributes["color"].Value));
 					shapes.Add (new Star(x,y,width,height, color));
 					break;
             }
