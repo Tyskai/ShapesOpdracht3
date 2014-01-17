@@ -152,7 +152,9 @@ Adding a new Shape is not very hard. We can very easily add a Shape like a polyg
 When the new, to be added Shape, is not describable with the Visual methods DrawCircle and DrawLine, we have to define a new method. This new method needs to be implemented by every subclass of Visual, which can give a lot of work depending on how many subclasses Visual has. But when you create a good new method, which could also be used in other new Shapes (in the future), a little afford will prevent much more work in the future. Then we can describe the Draw method with this new defined Visual method and 
 \\ % % Star Change
 
-When we
+The Star Shape can be easily modified to create new star or to change the existing star. The number of corners can be easily changed because the whole calculation depends on the number of corners.
+\\
+By chancing the numberOfPoints attribute in a even number $p$, you create a polygon with $p/2$ corners. If the number of corner points $p$ is a odd number, you create a star with $p$ corners.
 
 
 

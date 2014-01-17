@@ -7,7 +7,7 @@ using System.Text;
 public class Star : Shape
 {
 
-    private int numberOfPoints = 5;
+    private int numberOfPoints = 8;
 	private int width;
 	private int height;
     private Color color;
